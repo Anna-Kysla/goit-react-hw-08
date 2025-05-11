@@ -1,0 +1,16 @@
+.wrapper {
+  margin-bottom: 20px;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+.input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  width: 100%;
+  max-width: 400px;
+}
