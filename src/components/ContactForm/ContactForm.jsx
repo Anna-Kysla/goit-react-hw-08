@@ -1,44 +1,42 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { addContact } from "../../redux/contacts/contactsOperations";
 import styles from "./ContactForm.module.css";
 
 const ContactForm = () => {
-  const dispatch = useDispatch();
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [number, setNumber] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     setName("");
-    setPhone("");
+    setNumber("");
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <label className={styles.label}>
-        Name:
+        Name
         <input
-          className={styles.input}
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          required
+          className={styles.input}
         />
       </label>
       <label className={styles.label}>
-        Phone:
+        Number
         <input
-          className={styles.input}
           type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          className={styles.input}
         />
       </label>
-      <button className={styles.button} type="submit">
-        Add contact
+      <button type="submit" className={styles.button}>
+        Add Contact
       </button>
     </form>
   );
